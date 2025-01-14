@@ -19,6 +19,10 @@ impl Thumbnailer<'_> {
         img::Img::load(&mut mappings);
         zip::Zip::load(&mut mappings);
 
+        if video_rs::init().is_ok() {
+            video::Video::load(&mut mappings);
+        }
+
         Thumbnailer {
             width,
             height,
@@ -34,7 +38,7 @@ impl Thumbnailer<'_> {
         let func = self
             .mappings
             .get(mime)
-            .context("Unsupported MIME type: {mime}")?;
+            .context(format!("Unsupported MIME type: {mime}"))?;
         func(&self, path)
     }
 }

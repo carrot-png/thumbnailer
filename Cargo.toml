@@ -6,6 +6,8 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.95"
 image = "0.25.5"
+ndarray = "0.16.1"
 tempfile = "3.15.0"
 tree_magic_mini = "3.1.6"
+video-rs = { version = "0.10.3", features = ["ndarray"] }
 zip = "2.2.2"
